@@ -20,7 +20,7 @@ namespace AdventOfCode19 {
         /// </summary>
         /// <param name="mass"></param>
         /// <returns>The calculate fuel as a integer value.</returns>
-        private int calcFuelEquation(int mass) {
+        public int calcFuelEquation(int mass) {
             return (mass / 3) - 2;
         }
 

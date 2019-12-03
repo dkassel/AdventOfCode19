@@ -24,7 +24,7 @@ namespace AdventOfCode19 {
                     program.Add(SantasLittleHelperClass.stringToInt(split[j]));
                 }
             }
-            this.program = program.ToArray();            
+            this.program = program.ToArray();
         }
 
         private bool isOpCode(int code) {
@@ -42,9 +42,7 @@ namespace AdventOfCode19 {
             return 0;
         }
 
-        public int[] runProgram() {
-            bugFix(ref program);
-
+        public int[] runProgram(int[] program) {
             for (int i = 0; i < program.Length;) {
                 OpCmd command = (OpCmd)program[i];
                 if (!Enum.IsDefined(typeof(OpCmd), command)) throw new ArgumentException();
@@ -59,6 +57,11 @@ namespace AdventOfCode19 {
 
             }
             return program;
+        }
+
+        public int[] runProgram() {
+            bugFix(ref program);
+            return runProgram(program);
         }
 
     }
