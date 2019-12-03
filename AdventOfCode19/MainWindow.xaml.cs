@@ -28,9 +28,8 @@ namespace AdventOfCode19 {
         }
 
         private void btn_day2_Click(object sender, RoutedEventArgs e) {
-            Day2 day2 = new Day2();
-            int[] test = { 1, 0, 0, 0, 99 };
-            day2.runProgram(test);
+            Day2 day2 = new Day2();            
+            day2.runProgram();
         }
     }
 }

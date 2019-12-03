@@ -1,11 +1,9 @@
-﻿using System;
+﻿using AdventOfCode19.lib;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode19 {
-     
+
 
     enum OpCmd {
         ADD = 1,
@@ -13,6 +11,21 @@ namespace AdventOfCode19 {
         ABORT = 99
     }
     public class Day2 {
+        private const string INPUT_FILE_PATH = @"..\..\Tasks\Day2\input.txt";
+        private int[] program;
+
+        public Day2() {
+            string[] fileLines = SantasLittleHelperClass.textfileToStringArray(INPUT_FILE_PATH);
+            List<int> program = new List<int>();
+
+            for (int i = 0; i < fileLines.Length; i++) {
+                string[] split = fileLines[i].Split(',');
+                for (int j = 0; j < split.Length; j++) {
+                    program.Add(SantasLittleHelperClass.stringToInt(split[j]));
+                }
+            }
+            this.program = program.ToArray();            
+        }
 
         private bool isOpCode(int code) {
             return code == 1 || code == 2 || code == 99;
@@ -23,7 +36,15 @@ namespace AdventOfCode19 {
             program[2] = 2;
         }
 
-        public int[] runProgram(int[] program) {
+        private int computeNumbers(OpCmd code, int value1, int value2) {
+            if (code == OpCmd.ADD) return value1 + value2;
+            if (code == OpCmd.MLP) return value1 * value2;
+            return 0;
+        }
+
+        public int[] runProgram() {
+            bugFix(ref program);
+
             for (int i = 0; i < program.Length;) {
                 OpCmd command = (OpCmd)program[i];
                 if (!Enum.IsDefined(typeof(OpCmd), command)) throw new ArgumentException();
@@ -38,12 +59,6 @@ namespace AdventOfCode19 {
 
             }
             return program;
-        }
-
-        private int computeNumbers(OpCmd code, int value1, int value2) {
-            if (code == OpCmd.ADD) return value1 + value2;
-            if (code == OpCmd.MLP) return value1 * value2;
-            return 0;
         }
 
     }

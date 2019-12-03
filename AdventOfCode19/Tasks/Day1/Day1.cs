@@ -3,8 +3,7 @@ using System;
 
 namespace AdventOfCode19 {
     public class Day1 {
-
-        // private const string INPUT_FILE_PATH = "C:\\Users\\dkassel\\Desktop\\AdventOfCode19\\AdventOfCode19\\Tasks\\Day1\\input.txt";
+        
         private const string INPUT_FILE_PATH = @"..\..\Tasks\Day1\input.txt";
 
         /*
@@ -21,21 +20,29 @@ namespace AdventOfCode19 {
         /// </summary>
         /// <param name="mass"></param>
         /// <returns>The calculate fuel as a integer value.</returns>
-        public int calculateFuel(int mass) {
+        private int calcFuelEquation(int mass) {
             return (mass / 3) - 2;
         }
 
-        public void calcTotalFuelRequirement() {
+        public int calcFuel(int fuel) {
+            int result = calcFuelEquation(fuel);
+            if (result > 0)
+                return result + calcFuel(result);
+            else
+                return 0;
+        }
+
+        public int calcTotalFuelRequirement() {
             string[] fileLines = SantasLittleHelperClass.textfileToStringArray(INPUT_FILE_PATH);
             int[] masses = new int[fileLines.Length];
             for (int i = 0; i < fileLines.Length; i++) {
                 masses[i] = SantasLittleHelperClass.stringToInt(fileLines[i]);
             }
-            int fuelReq = 0;
+            int totalFuelReq = 0;
             for (int i = 0; i < masses.Length; i++) {
-                fuelReq += calculateFuel(masses[i]);
+                totalFuelReq += calcFuel(masses[i]);
             }
-            Console.WriteLine(fuelReq);
+            return totalFuelReq;
         }
     }
 }

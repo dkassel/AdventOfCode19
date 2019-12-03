@@ -8,10 +8,10 @@ namespace AdventOfCode19.Tests {
         public void calculateFuelTest()
         {
             Day1 day1 = new Day1();
-            Assert.AreEqual(day1.calculateFuel(12), 2);
-            Assert.AreEqual(day1.calculateFuel(14), 2);
-            Assert.AreEqual(day1.calculateFuel(1969), 654);
-            Assert.AreEqual(day1.calculateFuel(100756), 33583);
+            Assert.AreEqual(day1.calcFuelEquation(12), 2);
+            Assert.AreEqual(day1.calcFuelEquation(14), 2);
+            Assert.AreEqual(day1.calcFuelEquation(1969), 654);
+            Assert.AreEqual(day1.calcFuelEquation(100756), 33583);
 
         }
     }
