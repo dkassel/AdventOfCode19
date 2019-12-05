@@ -5,14 +5,53 @@ using System.Collections.Generic;
 namespace AdventOfCode19 {
 
 
-    enum OpCmd {
+    enum OpCode {
         ADD = 1,
         MLP = 2,
         ABORT = 99
     }
+
+    class Instruction {
+        private OpCode opCode;
+        public OpCode OpCode {
+            get { return opCode; }
+            set { opCode = value; }
+        }
+
+        private int param1;
+        public int Param1 {
+            get { return param1; }
+            set { param1 = value; }
+        }
+
+        private int param2;
+        public int Param2 {
+            get { return param2; }
+            set { param2 = value; }
+        }
+
+        private int outParam;
+        public int OutParam {
+            get { return outParam; }
+            set { outParam = value; }
+        }
+
+
+        public Instruction(OpCode opCode, int param1, int param2, int outParam) {
+            OpCode = opCode;
+            Param1 = param1;
+            Param2 = param2;
+            OutParam = outParam;
+        }
+
+
+    }
+
+
     public class Day2 {
         private const string INPUT_FILE_PATH = @"..\..\Tasks\Day2\input.txt";
-        private int[] program;
+        private int[] memory;
+        private int[] originalMemory;
 
         public Day2() {
             string[] fileLines = SantasLittleHelperClass.textfileToStringArray(INPUT_FILE_PATH);
@@ -24,44 +63,72 @@ namespace AdventOfCode19 {
                     program.Add(SantasLittleHelperClass.stringToInt(split[j]));
                 }
             }
-            this.program = program.ToArray();
+            originalMemory = program.ToArray();
         }
 
-        private bool isOpCode(int code) {
-            return code == 1 || code == 2 || code == 99;
-        }
 
-        private void bugFix(ref int[] program) {
-            program[1] = 12;
-            program[2] = 2;
-        }
-
-        private int computeNumbers(OpCmd code, int value1, int value2) {
-            if (code == OpCmd.ADD) return value1 + value2;
-            if (code == OpCmd.MLP) return value1 * value2;
+        private int executeInstruction(Instruction inst, int[] program) {
+            int value1 = program[inst.Param1];
+            int value2 = program[inst.Param2];
+            if (inst.OpCode == OpCode.ADD) return value1 + value2;
+            if (inst.OpCode == OpCode.MLP) return value1 * value2;
             return 0;
         }
 
-        public int[] runProgram(int[] program) {
-            for (int i = 0; i < program.Length;) {
-                OpCmd command = (OpCmd)program[i];
-                if (!Enum.IsDefined(typeof(OpCmd), command)) throw new ArgumentException();
+        public int[] runShipComputer(int[] program) {
 
-                if (command == OpCmd.ABORT) break;
+            for (int iPt = 0; iPt < program.Length; iPt += 4) {
+                OpCode opCode = (OpCode)program[iPt];
 
-                int index1 = program[i + 1];
-                int index2 = program[i + 2];
-                int outputIndex = program[i + 3];
-                program[outputIndex] = computeNumbers(command, program[index1], program[index2]);
-                i += 4;
+                if (!Enum.IsDefined(typeof(OpCode), opCode)) throw new ArgumentException();
+                if (opCode == OpCode.ABORT) break;
+
+                int ad1 = iPt + 1;
+                int ad2 = iPt + 2;
+                int ad3 = iPt + 3;
+                int param1 = program[ad1];
+                int param2 = program[ad2];
+                int outParam = program[ad3];
+
+                Instruction inst = new Instruction(opCode, param1, param2, outParam);
+
+                program[inst.OutParam] = executeInstruction(inst, program);
+
 
             }
             return program;
         }
 
-        public int[] runProgram() {
-            bugFix(ref program);
-            return runProgram(program);
+        public int solveProblem1() {
+            resetMemory();
+
+            // "Bug fix"
+            memory[1] = 12;
+            memory[2] = 2;
+
+            return runShipComputer(memory)[0];
+        }
+
+        public int solveProblem2() {
+            for (int noun = 0; noun < 100; noun++) {
+                for (int verb = 0; verb < 100; verb++) {
+                    resetMemory();
+
+                    memory[1] = noun;
+                    memory[2] = verb;
+
+                    int[] result = runShipComputer(memory);
+                    if (result[0] == 19690720) {
+                        return 100 * noun + verb;
+                    }
+                }
+            }
+            throw new Exception("This should never have happened, Problem is UNSOLVABLE!!!");
+        }
+
+        private void resetMemory() {
+            memory = new int[originalMemory.Length];
+            originalMemory.CopyTo(memory, 0);
         }
 
     }

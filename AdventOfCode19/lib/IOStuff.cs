@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AdventOfCode19.lib {
     class SantasLittleHelperClass {
@@ -21,6 +22,15 @@ namespace AdventOfCode19.lib {
                 Console.WriteLine("Unable to parse " + input);
             }
             return -1;
+        }
+
+        public static int[] intToDigitArray(int value) {
+            List<int> digits = new List<int>();
+            for (; value != 0; value /= 10) {
+                digits.Add(value % 10);
+            }
+            digits.Reverse();
+            return digits.ToArray();
         }
     }
 }

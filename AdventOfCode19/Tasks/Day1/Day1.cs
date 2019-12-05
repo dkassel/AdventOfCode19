@@ -1,5 +1,4 @@
 ﻿using AdventOfCode19.lib;
-using System;
 
 namespace AdventOfCode19 {
     public class Day1 {
