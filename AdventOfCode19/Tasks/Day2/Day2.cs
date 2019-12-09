@@ -5,9 +5,15 @@ using System.Collections.Generic;
 namespace AdventOfCode19 {
 
 
-    enum OpCode {
+    public enum OpCode {
         ADD = 1,
         MLP = 2,
+        MOV = 3,
+        OUT = 4,
+        JMP_TRUE = 5,
+        JMP_FALSE = 6,
+        LESS_THAN = 7,
+        EQ = 8,
         ABORT = 99
     }
 
@@ -30,18 +36,30 @@ namespace AdventOfCode19 {
             set { param2 = value; }
         }
 
-        private int outParam;
-        public int OutParam {
-            get { return outParam; }
-            set { outParam = value; }
+        private int param3;
+        public int Param3 {
+            get { return param3; }
+            set { param3 = value; }
         }
 
+        public ParameterMode Mode {
+            get {
+                return mode;
+            }
 
-        public Instruction(OpCode opCode, int param1, int param2, int outParam) {
+            set {
+                mode = value;
+            }
+        }
+
+        private ParameterMode mode;
+
+
+        public Instruction(OpCode opCode, int param1, int param2, int param3) {
             OpCode = opCode;
             Param1 = param1;
             Param2 = param2;
-            OutParam = outParam;
+            Param3 = param3;
         }
 
 
@@ -92,7 +110,7 @@ namespace AdventOfCode19 {
 
                 Instruction inst = new Instruction(opCode, param1, param2, outParam);
 
-                program[inst.OutParam] = executeInstruction(inst, program);
+                program[inst.Param3] = executeInstruction(inst, program);
 
 
             }

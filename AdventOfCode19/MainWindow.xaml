@@ -7,8 +7,11 @@
         mc:Ignorable="d"
         Title="Advent of Code 2019" Height="350" Width="525">
     <StackPanel HorizontalAlignment="Left" Height="314" Margin="10,0,0,0" VerticalAlignment="Top" Width="505">
-        <Button x:Name="btn_day1" Tag="1" Content="Day 1" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold" Click="btn_day1_Click"/>
-        <Button x:Name="btn_day2" Tag="1" Content="Day 2" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold" Click="btn_day2_Click"/>
+        <Button x:Name="btn_day1" Content="Day 1" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold" Click="btn_day1_Click"/>
+        <Button x:Name="btn_day2" Content="Day 2" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold" Click="btn_day2_Click"/>
+        <Button x:Name="btn_day3" Content="Day 3" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold" Click="btn_day3_Click"/>
+        <Button x:Name="btn_day4" Content="Day 4" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold" Click="btn_day4_Click"/>
+        <Button x:Name="btn_day5" Content="Day 5" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold" Click="btn_day5_Click"/>
     </StackPanel>
 
 </Window>
