@@ -39,6 +39,13 @@ namespace AdventOfCode19 {
             Console.WriteLine("This is it for 2: " + solution2);
         }
 
+        private void btn_day6_Click(object sender, RoutedEventArgs e) {
+            UniversalOrbitMap map = new UniversalOrbitMap();
+            Console.WriteLine("Task 1 answer = " + map.solveTask1());
+            Console.WriteLine("Task 2 answer = " + map.solveTask2());
+
+        }
+
         private void btn_day5_Click(object sender, RoutedEventArgs e) {
             Day5 d = new Day5();
             int solution1 = d.runThermalEnvironmentSupervisionTerminal(1);

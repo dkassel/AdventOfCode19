@@ -12,6 +12,8 @@
         <Button x:Name="btn_day3" Content="Day 3" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold" Click="btn_day3_Click"/>
         <Button x:Name="btn_day4" Content="Day 4" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold" Click="btn_day4_Click"/>
         <Button x:Name="btn_day5" Content="Day 5" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold" Click="btn_day5_Click"/>
+        <Button x:Name="btn_day6" Content="Day 6" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold" Click="btn_day6_Click"/>
+        <Button x:Name="btn_day10" Content="Day10" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="40" FontWeight="Bold" Click="btn_day10_Click"/>
     </StackPanel>
 
 </Window>
