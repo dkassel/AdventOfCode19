@@ -20,7 +20,7 @@ namespace AdventOfCode19 {
         }
 
         private void loadDirectionsFromFile() {
-            string[] input = SantasLittleHelperClass.textfileToStringArray(INPUT_FILE_PATH);
+            string[] input = SantasLittleHelperClass.TextfileToStringArray(INPUT_FILE_PATH);
             List<string> directions = new List<string>();
 
             for (int i = 0; i < input.Length; i++) {
@@ -88,7 +88,7 @@ namespace AdventOfCode19 {
             List<Point> result = new List<Point>();
             foreach (string instruction in instructions) {
                 char c = instruction[0];
-                int steps = SantasLittleHelperClass.stringToInt(instruction.Substring(1));
+                int steps = SantasLittleHelperClass.StringToInt(instruction.Substring(1));
 
                 int step = (c == 'D') || (c == 'L') ? -1 : 1;
 
@@ -133,7 +133,7 @@ namespace AdventOfCode19 {
 
             foreach (string instruction in instructions) {
                 char c = instruction[0];
-                int steps = SantasLittleHelperClass.stringToInt(instruction.Substring(1));
+                int steps = SantasLittleHelperClass.StringToInt(instruction.Substring(1));
 
 
                 int step = (c == 'D') || (c == 'L') ? -1 : 1;

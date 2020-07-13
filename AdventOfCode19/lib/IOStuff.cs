@@ -5,7 +5,7 @@ using System.Linq;
 namespace AdventOfCode19.lib {
     class SantasLittleHelperClass {
 
-        public static string[] textfileToStringArray(string txtFilePath) {
+        public static string[] TextfileToStringArray(string txtFilePath) {
             try {
                 return System.IO.File.ReadAllLines(txtFilePath);
             }
@@ -15,7 +15,7 @@ namespace AdventOfCode19.lib {
             return new string[0];
         }
 
-        public static int stringToInt(string input) {
+        public static int StringToInt(string input) {
             try {
                 return int.Parse(input);
             }
@@ -25,15 +25,25 @@ namespace AdventOfCode19.lib {
             return -1;
         }
 
-        public static int[] stringArrayToIntArray(string[] input) {
+        public static long StringToLong(string input) {
+            try {
+                return long.Parse(input);
+            }
+            catch (FormatException) {
+                Console.WriteLine("Unable to parse " + input);
+            }
+            return -1;
+        }
+
+        public static int[] StringArrayToIntArray(string[] input) {
             int[] result = new int[input.Length];
             for (int j = 0; j < input.Length; j++) {
-                result[j] = SantasLittleHelperClass.stringToInt(input[j]);
+                result[j] = StringToInt(input[j]);
             }
             return result;
         }
 
-        public static int[] intToDigitArray(int value) {
+        public static int[] IntToDigitArray(int value) {
             List<int> digits = new List<int>();
             for (; value != 0; value /= 10) {
                 digits.Add(value % 10);

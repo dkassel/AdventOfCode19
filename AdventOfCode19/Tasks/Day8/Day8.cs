@@ -17,7 +17,7 @@ namespace AdventOfCode19.Tasks.Day8 {
         private const int layerSize = width * height;
 
         private int[] readImageDataFromInputfile() {
-            string[] fileLines = SantasLittleHelperClass.textfileToStringArray(INPUT_FILE_PATH);
+            string[] fileLines = SantasLittleHelperClass.TextfileToStringArray(INPUT_FILE_PATH);
             string input = fileLines[0];
             List<int> numbers = new List<int>();
             foreach (char c in input) {

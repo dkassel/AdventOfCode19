@@ -1,4 +1,11 @@
-﻿using System;
+﻿using AdventOfCode19.Tasks.Day10;
+using AdventOfCode19.Tasks.Day12;
+using AdventOfCode19.Tasks.Day13;
+using AdventOfCode19.Tasks.Day6;
+using AdventOfCode19.Tasks.Day7;
+using AdventOfCode19.Tasks.Day8;
+using AdventOfCode19.Tasks.Day9;
+using System;
 using System.Windows;
 
 namespace AdventOfCode19 {
@@ -8,6 +15,20 @@ namespace AdventOfCode19 {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
+            AmplificationCircuit c = new AmplificationCircuit();
+            //c.SolveTask1();
+            //c.SolveTask2();
+
+            SensorBoost s = new SensorBoost();
+            s.Tests();
+
+            ArcadeCabinet ac = new ArcadeCabinet();
+            ac.solveTask1();            
+            /*
+            N_BodyProblem prob = new N_BodyProblem();
+            
+            */
+
         }
 
         private void btn_day1_Click(object sender, RoutedEventArgs e) {
@@ -48,11 +69,26 @@ namespace AdventOfCode19 {
 
         private void btn_day5_Click(object sender, RoutedEventArgs e) {
             Day5 d = new Day5();
-            int solution1 = d.runThermalEnvironmentSupervisionTerminal(1);
+            int[] inputArray = { 1 };
+            int solution1 = d.runThermalEnvironmentSupervisionTerminal(inputArray);
             Console.WriteLine("Solution 1 " + solution1);
-
-            int solution2 = d.runThermalEnvironmentSupervisionTerminal(5);
+            Console.WriteLine(4511442 == solution1);
+            inputArray[0] = 5;
+            int solution2 = d.runThermalEnvironmentSupervisionTerminal(inputArray);
             Console.WriteLine("Solution 2 " + solution2);
+            Console.WriteLine(12648139 == solution2);
+
+            /*
+            Day8 d = new Day8();
+            d.solveTask1();
+            d.solveTask2();
+            */
+        }
+
+        private void btn_day10_Click(object sender, RoutedEventArgs e) {
+            MonitoringStation s = new MonitoringStation();
+            s.print();
+            Console.WriteLine("Button 10 clicked");
         }
     }
 }

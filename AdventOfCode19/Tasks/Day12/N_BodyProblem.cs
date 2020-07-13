@@ -98,7 +98,7 @@ namespace AdventOfCode19.Tasks.Day12 {
         public Vector3D[] Input {
             get {
                 if (input == null) {
-                    input = parseInput(SantasLittleHelperClass.textfileToStringArray(INPUT_FILE_PATH));
+                    input = parseInput(SantasLittleHelperClass.TextfileToStringArray(INPUT_FILE_PATH));
                 }
                 return input;
             }

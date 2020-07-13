@@ -13,8 +13,8 @@ namespace AdventOfCode19 {
             var minAndMaxVal = input.Split('-');
             if (minAndMaxVal.Length != 2) throw new ArgumentException("wrong kind of input string, must be two numbers seperated by a '-'");
 
-            min = SantasLittleHelperClass.stringToInt(minAndMaxVal[0]);
-            max = SantasLittleHelperClass.stringToInt(minAndMaxVal[1]);
+            min = SantasLittleHelperClass.StringToInt(minAndMaxVal[0]);
+            max = SantasLittleHelperClass.StringToInt(minAndMaxVal[1]);
 
             if (min > max) throw new ArgumentException("wrong kind of input string, first number must be smaller than the second");
         }
@@ -42,7 +42,7 @@ namespace AdventOfCode19 {
         }
 
         public bool isValidPassword(int pw) {
-            int[] pwDigits = SantasLittleHelperClass.intToDigitArray(pw);
+            int[] pwDigits = SantasLittleHelperClass.IntToDigitArray(pw);
 
             // It is a six-digit number.
             if (pwDigits.Length != 6) return false;
@@ -75,7 +75,7 @@ namespace AdventOfCode19 {
 
 
         public bool isSuperSpecialValidPassword(int pw) {
-            int[] pwDigits = SantasLittleHelperClass.intToDigitArray(pw);
+            int[] pwDigits = SantasLittleHelperClass.IntToDigitArray(pw);
 
             int nr = pwDigits[0];
             int end = pwDigits.Length - 1;

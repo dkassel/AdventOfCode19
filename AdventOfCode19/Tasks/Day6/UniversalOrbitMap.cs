@@ -114,7 +114,7 @@ namespace AdventOfCode19.Tasks.Day6 {
         }
 
         private string[] getCommandsFromFile() {
-            return SantasLittleHelperClass.textfileToStringArray(INPUT_FILE_PATH);
+            return SantasLittleHelperClass.TextfileToStringArray(INPUT_FILE_PATH);
         }
 
         public Dictionary<string, Planet> createMap(string[] input) {

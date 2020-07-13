@@ -1,4 +1,5 @@
 ﻿using AdventOfCode19.lib;
+using AdventOfCode19.Tasks.Day7;
 using System;
 using System.Collections.Generic;
 
@@ -72,13 +73,13 @@ namespace AdventOfCode19 {
         private int[] originalMemory;
 
         public Day2() {
-            string[] fileLines = SantasLittleHelperClass.textfileToStringArray(INPUT_FILE_PATH);
+            string[] fileLines = SantasLittleHelperClass.TextfileToStringArray(INPUT_FILE_PATH);
             List<int> program = new List<int>();
 
             for (int i = 0; i < fileLines.Length; i++) {
                 string[] split = fileLines[i].Split(',');
                 for (int j = 0; j < split.Length; j++) {
-                    program.Add(SantasLittleHelperClass.stringToInt(split[j]));
+                    program.Add(SantasLittleHelperClass.StringToInt(split[j]));
                 }
             }
             originalMemory = program.ToArray();

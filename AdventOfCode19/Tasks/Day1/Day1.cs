@@ -32,10 +32,10 @@ namespace AdventOfCode19 {
         }
 
         public int calcTotalFuelRequirement() {
-            string[] fileLines = SantasLittleHelperClass.textfileToStringArray(INPUT_FILE_PATH);
+            string[] fileLines = SantasLittleHelperClass.TextfileToStringArray(INPUT_FILE_PATH);
             int[] masses = new int[fileLines.Length];
             for (int i = 0; i < fileLines.Length; i++) {
-                masses[i] = SantasLittleHelperClass.stringToInt(fileLines[i]);
+                masses[i] = SantasLittleHelperClass.StringToInt(fileLines[i]);
             }
             int totalFuelReq = 0;
             for (int i = 0; i < masses.Length; i++) {

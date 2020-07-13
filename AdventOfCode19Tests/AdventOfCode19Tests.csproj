@@ -57,6 +57,9 @@
     <Compile Include="Tasks\Day3\Day3Tests.cs" />
     <Compile Include="Tasks\Day4\Day4Tests.cs" />
     <Compile Include="Tasks\Day5\Day5Tests.cs" />
+    <Compile Include="Tasks\Day7\AmplificationCircuitTests.cs" />
+    <Compile Include="Tasks\Day7\IntCodeComputerTests.cs" />
+    <Compile Include="Tasks\Day8\Day8Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AdventOfCode19\AdventOfCode19.csproj">
